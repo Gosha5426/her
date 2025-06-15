@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACS - Hacker Command System</title>
+    <meta name="description" content="Interactive hacker terminal simulation">
+    <meta property="og:title" content="HACS - Hacker Command System">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body { opacity: 0; transition: opacity 0.5s ease; }
+    </style>
+</head>
+<body>
+    <div class="matrix-effect"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <pre aria-hidden="true">
+  _    _           _    _____ _____ _  ________ _____  
+ | |  | |         | |  / ____/ ____| |/ /  ____|  __ \ 
+ | |__| | __ _ ___| | | |   | |    | ' /| |__  | |__) |
+ |  __  |/ _` / __| | | |   | |    |  < |  __| |  _  / 
+ | |  | | (_| \__ \ | | |___| |____| . \| |____| | \ \ 
+ |_|  |_|\__,_|___/_|  \_____\_____|_|\_\______|_|  \_\
+                </pre>
+            </div>
+            <div class="status-bar">
+                <span class="status-item">USER: ROOT</span>
+                <span class="status-item">ACCESS: LEVEL 10</span>
+                <span class="status-item">CONNECTION: ENCRYPTED</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-title">SYSTEM TERMINAL</span>
+                    <span class="terminal-controls">[×] [■] [□]</span>
+                </div>
+                <div class="terminal-body" id="terminal" role="terminal" aria-live="polite">
+                    <div class="terminal-line">> INITIALIZING SYSTEM...</div>
+                    <div class="terminal-line">> LOADING CORE MODULES...</div>
+                    <div class="terminal-line">> ESTABLISHING SECURE CONNECTION...</div>
+                    <div class="terminal-line">> WELCOME, ROOT. LAST LOGIN: 2023-04-15 23:59:59 UTC</div>
+                    <div class="terminal-line">> TYPE 'HELP' FOR AVAILABLE COMMANDS</div>
+                    <div class="terminal-line">
+                        <span class="prompt">root@h4ck3r:~$</span>
+                        <span class="input" id="command-input" contenteditable="true" aria-label="Command input"></span>
+                        <span class="cursor blink">|</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>SYSTEM TOOLS</h3>
+                    <ul class="hacker-list">
+                        <li>> NETWORK SCANNER</li>
+                        <li>> ENCRYPTION TOOL</li>
+                        <li>> PASSWORD CRACKER</li>
+                        <li>> VULNERABILITY DATABASE</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>ACTIVE CONNECTIONS</h3>
+                    <div class="connection-list">
+                        <div class="connection-item">> 192.168.1.1 - SECURE</div>
+                        <div class="connection-item">> 10.0.0.45 - ENCRYPTED</div>
+                        <div class="connection-item">> 172.16.23.42 - TOR</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h3>SECURITY ALERTS</h3>
+                    <div class="alert-list">
+                        <div class="alert-item critical">> INTRUSION DETECTED: PORT 22</div>
+                        <div class="alert-item warning">> UNUSUAL TRAFFIC: 10.0.0.45</div>
+                        <div class="alert-item normal">> FIREWALL ACTIVE</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-text">
+                > SYSTEM STATUS: OPERATIONAL | ENCRYPTION: AES-256 | LAST UPDATE: <span id="current-date"></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Help Panel (always visible) -->
+    <div class="help-panel" id="help-window">
+        <h3>AVAILABLE COMMANDS</h3>
+        <div class="commands-list" id="commands-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '1';
+            document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+        });
+    </script>
+</body>
+</html>
